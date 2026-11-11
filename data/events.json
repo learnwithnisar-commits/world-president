@@ -1,0 +1,155 @@
+[
+  {
+    "id": "earthquake",
+    "type": "disaster",
+    "name": "Earthquake",
+    "nameUr": "زلزلہ",
+    "severityScale": 3,
+    "baseDamage": 120,
+    "description": "A powerful earthquake strikes, damaging buildings and infrastructure."
+  },
+  {
+    "id": "flood",
+    "type": "disaster",
+    "name": "Flood",
+    "nameUr": "سیلاب",
+    "severityScale": 3,
+    "baseDamage": 90,
+    "description": "Heavy rains cause widespread flooding, displacing people and damaging crops."
+  },
+  {
+    "id": "drought",
+    "type": "disaster",
+    "name": "Drought",
+    "nameUr": "خشک سالی",
+    "severityScale": 3,
+    "baseDamage": 80,
+    "description": "Prolonged lack of rain dries up water supplies and destroys harvests."
+  },
+  {
+    "id": "hurricane",
+    "type": "disaster",
+    "name": "Hurricane",
+    "nameUr": "سمندری طوفان",
+    "severityScale": 3,
+    "baseDamage": 110,
+    "description": "A violent storm with destructive winds and heavy rain hits coastal areas."
+  },
+  {
+    "id": "wildfire",
+    "type": "disaster",
+    "name": "Wildfire",
+    "nameUr": "جنگل کی آگ",
+    "severityScale": 3,
+    "baseDamage": 70,
+    "description": "Uncontrolled wildfires burn forests, homes and farmland."
+  },
+  {
+    "id": "heatwave",
+    "type": "disaster",
+    "name": "Heatwave",
+    "nameUr": "شدید گرمی کی لہر",
+    "severityScale": 3,
+    "baseDamage": 50,
+    "description": "Extreme heat strains power grids, health services and water supplies."
+  },
+  {
+    "id": "crop_failure",
+    "type": "economic",
+    "name": "Crop Failure",
+    "nameUr": "فصل کی ناکامی",
+    "severityScale": 3,
+    "baseDamage": 60,
+    "description": "Pests and poor weather ruin harvests, pushing food prices up."
+  },
+  {
+    "id": "energy_shortage",
+    "type": "economic",
+    "name": "Energy Shortage",
+    "nameUr": "توانائی کی قلت",
+    "severityScale": 3,
+    "baseDamage": 55,
+    "description": "Power plants and fuel supplies fall short of demand, causing blackouts."
+  },
+  {
+    "id": "recession",
+    "type": "economic",
+    "name": "Recession",
+    "nameUr": "معاشی کساد بازاری",
+    "severityScale": 3,
+    "baseDamage": 100,
+    "description": "Economic activity contracts, unemployment rises and tax revenue falls."
+  },
+  {
+    "id": "pandemic",
+    "type": "disease",
+    "name": "Pandemic",
+    "nameUr": "وبا",
+    "severityScale": 3,
+    "baseDamage": 150,
+    "description": "A fast-spreading disease crosses borders, overwhelming hospitals."
+  },
+  {
+    "id": "supply_disruption",
+    "type": "economic",
+    "name": "Supply Chain Disruption",
+    "nameUr": "سپلائی میں خلل",
+    "severityScale": 3,
+    "baseDamage": 45,
+    "description": "Ports and shipping lanes are disrupted, delaying goods and raising prices."
+  },
+  {
+    "id": "financial_crisis",
+    "type": "economic",
+    "name": "Financial Crisis",
+    "nameUr": "مالیاتی بحران",
+    "severityScale": 3,
+    "baseDamage": 130,
+    "description": "Banks and markets lose confidence, credit dries up and investment falls."
+  },
+  {
+    "id": "refugee_crisis",
+    "type": "disaster",
+    "name": "Refugee Crisis",
+    "nameUr": "پناہ گزینوں کا بحران",
+    "severityScale": 3,
+    "baseDamage": 65,
+    "description": "Large numbers of displaced people arrive, straining housing and services."
+  },
+  {
+    "id": "influenza",
+    "type": "disease",
+    "name": "Influenza",
+    "nameUr": "فلو",
+    "severityScale": 3,
+    "baseDamage": 30,
+    "description": "Seasonal influenza spreads, raising hospital admissions."
+  },
+  {
+    "id": "cholera",
+    "type": "disease",
+    "name": "Cholera",
+    "nameUr": "ہیضہ",
+    "severityScale": 3,
+    "baseDamage": 40,
+    "description": "Contaminated water spreads cholera, threatening public health."
+  },
+  {
+    "id": "dengue",
+    "type": "disease",
+    "name": "Dengue",
+    "nameUr": "ڈینگی",
+    "severityScale": 3,
+    "baseDamage": 35,
+    "description": "Mosquito-borne dengue fever spreads in warm, wet regions."
+  },
+  {
+    "id": "malaria",
+    "type": "disease",
+    "name": "Malaria",
+    "nameUr": "ملیریا",
+    "severityScale": 3,
+    "baseDamage": 45,
+    "description": "Malaria cases rise, burdening clinics and the workforce."
+  }
+]
