@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORLD PRESIDENT — Your Nation. Your Decisions. Our World.</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/app.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+<header id="topbar">
+  <a class="brand" href="#/landing">🌍 <span>WORLD PRESIDENT</span></a>
+  <nav id="mainnav" aria-label="Main"></nav>
+  <div class="top-right">
+    <span id="world-clock" class="clock" title="Game date / tick">—</span>
+    <span id="online-count" class="online" title="Players online">● 0 online</span>
+    <button id="lang-toggle" class="btn btn-ghost" type="button">اردو</button>
+    <button id="logout-btn" class="btn btn-ghost hidden" type="button" data-i18n="logout">Logout</button>
+  </div>
+</header>
+<main id="app" aria-live="polite"></main>
+<div id="modal-root"></div>
+<div id="toasts" aria-live="assertive"></div>
+<footer id="footer"><span data-i18n="footer_sim">Simulated market — not real-world data.</span> · WORLD PRESIDENT</footer>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
