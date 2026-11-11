@@ -1,0 +1,170 @@
+[
+  {
+    "id": "oil",
+    "name": "Oil",
+    "nameUr": "تیل",
+    "unit": "barrel",
+    "category": "energy",
+    "basePrice": 78
+  },
+  {
+    "id": "natural_gas",
+    "name": "Natural Gas",
+    "nameUr": "قدرتی گیس",
+    "unit": "MMBtu",
+    "category": "energy",
+    "basePrice": 3.4
+  },
+  {
+    "id": "electricity",
+    "name": "Electricity",
+    "nameUr": "بجلی",
+    "unit": "MWh",
+    "category": "energy",
+    "basePrice": 95
+  },
+  {
+    "id": "wheat",
+    "name": "Wheat",
+    "nameUr": "گندم",
+    "unit": "tonne",
+    "category": "agriculture",
+    "basePrice": 265
+  },
+  {
+    "id": "rice",
+    "name": "Rice",
+    "nameUr": "چاول",
+    "unit": "tonne",
+    "category": "agriculture",
+    "basePrice": 540
+  },
+  {
+    "id": "corn",
+    "name": "Corn",
+    "nameUr": "مکئی",
+    "unit": "tonne",
+    "category": "agriculture",
+    "basePrice": 210
+  },
+  {
+    "id": "sugar",
+    "name": "Sugar",
+    "nameUr": "چینی",
+    "unit": "tonne",
+    "category": "agriculture",
+    "basePrice": 560
+  },
+  {
+    "id": "cotton",
+    "name": "Cotton",
+    "nameUr": "کپاس",
+    "unit": "tonne",
+    "category": "agriculture",
+    "basePrice": 1750
+  },
+  {
+    "id": "gold",
+    "name": "Gold",
+    "nameUr": "سونا",
+    "unit": "oz",
+    "category": "metals",
+    "basePrice": 2650
+  },
+  {
+    "id": "silver",
+    "name": "Silver",
+    "nameUr": "چاندی",
+    "unit": "oz",
+    "category": "metals",
+    "basePrice": 31
+  },
+  {
+    "id": "copper",
+    "name": "Copper",
+    "nameUr": "تانبا",
+    "unit": "tonne",
+    "category": "metals",
+    "basePrice": 9200
+  },
+  {
+    "id": "iron",
+    "name": "Iron Ore",
+    "nameUr": "لوہا",
+    "unit": "tonne",
+    "category": "metals",
+    "basePrice": 105
+  },
+  {
+    "id": "steel",
+    "name": "Steel",
+    "nameUr": "اسٹیل",
+    "unit": "tonne",
+    "category": "industrial",
+    "basePrice": 720
+  },
+  {
+    "id": "coal",
+    "name": "Coal",
+    "nameUr": "کوئلہ",
+    "unit": "tonne",
+    "category": "energy",
+    "basePrice": 130
+  },
+  {
+    "id": "timber",
+    "name": "Timber",
+    "nameUr": "لکڑی",
+    "unit": "cubic metre",
+    "category": "materials",
+    "basePrice": 310
+  },
+  {
+    "id": "pharmaceuticals",
+    "name": "Pharmaceuticals",
+    "nameUr": "ادویات",
+    "unit": "unit",
+    "category": "manufactured",
+    "basePrice": 45
+  },
+  {
+    "id": "electronics",
+    "name": "Electronics",
+    "nameUr": "الیکٹرانکس",
+    "unit": "unit",
+    "category": "manufactured",
+    "basePrice": 120
+  },
+  {
+    "id": "vehicles",
+    "name": "Vehicles",
+    "nameUr": "گاڑیاں",
+    "unit": "unit",
+    "category": "manufactured",
+    "basePrice": 18500
+  },
+  {
+    "id": "machinery",
+    "name": "Machinery",
+    "nameUr": "مشینری",
+    "unit": "unit",
+    "category": "manufactured",
+    "basePrice": 8500
+  },
+  {
+    "id": "fertilizers",
+    "name": "Fertilizers",
+    "nameUr": "کھاد",
+    "unit": "tonne",
+    "category": "agriculture",
+    "basePrice": 420
+  },
+  {
+    "id": "construction_materials",
+    "name": "Construction Materials",
+    "nameUr": "تعمیراتی سامان",
+    "unit": "tonne",
+    "category": "materials",
+    "basePrice": 180
+  }
+]
