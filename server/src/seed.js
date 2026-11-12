@@ -202,7 +202,20 @@ function loadDataFiles() {
 async function seedIfEmpty(store) {
   const existing = await store.countCountries();
   const data = loadDataFiles();
-  if (existing > 0) return { seeded: false, ...data };
+  if (existing > 0) {
+    // Repair: a world seeded from the built-in fallback (e.g. a bad deploy
+    // layout hid data/*.json) must be rebuilt from the real files — but
+    // ONLY while nobody has registered yet, so no player progress is lost.
+    // Worlds seeded correctly record seed_source='files' and never repair.
+    const users = await store.countUsers();
+    const source = await store.getMeta('seed_source');
+    if (users === 0 && data.fromFiles && source !== 'files') {
+      console.log('[seed] repairing fallback-seeded world from data/*.json (0 users, nothing to lose)');
+      await store.resetWorld();
+    } else {
+      return { seeded: false, ...data };
+    }
+  }
   for (const c of data.countries) {
     await store.seedCountry(c, initialState(c));
   }
@@ -212,6 +225,7 @@ async function seedIfEmpty(store) {
   await store.setMeta('event_templates', JSON.stringify(data.events));
   await store.setMeta('commodities', JSON.stringify(data.commodities));
   await store.setMeta('seeded_at', new Date().toISOString());
+  await store.setMeta('seed_source', data.fromFiles ? 'files' : 'fallback');
   console.log(`[seed] seeded ${data.countries.length} countries, ${data.commodities.length} commodities from ${data.fromFiles ? 'data/*.json' : 'built-in fallback'}`);
   return { seeded: true, ...data };
 }
