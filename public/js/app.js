@@ -51,6 +51,25 @@ function renderNav(){
   $('#logout-btn').classList.remove('hidden');
   nav.innerHTML=NAV.map(([k,h])=>`<a href="${h}" class="${location.hash===h?'active':''}">${esc(t(k))}</a>`).join('')+(S.user?.is_admin?`<a href="#/admin">${esc(t('admin'))}</a>`:'');
 }
+/* Mobile nav: hamburger toggles the nav panel; tapping a link closes it. */
+const navToggle=$('#nav-toggle');
+if(navToggle) navToggle.onclick=()=>{ const open=$('#topbar').classList.toggle('nav-open'); navToggle.setAttribute('aria-expanded',open?'true':'false'); };
+$('#mainnav').addEventListener('click',e=>{ if(e.target.closest('a')){ $('#topbar').classList.remove('nav-open'); if(navToggle) navToggle.setAttribute('aria-expanded','false'); } });
+/* Wide tables (market, diplomacy, rankings) wrap in a horizontal-scroll
+   container so they never force page-wide overflow on phones. Applied by a
+   MutationObserver so tables rendered later by live updates are covered too. */
+function wrapTables(root){
+  (root||document).querySelectorAll('table').forEach(tb=>{
+    if(tb.parentElement && tb.parentElement.classList.contains('table-wrap')) return;
+    const w=document.createElement('div'); w.className='table-wrap';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+}
+new MutationObserver(ms=>{ for(const m of ms){ m.addedNodes.forEach(n=>{ if(n.nodeType!==1) return; if(n.tagName==='TABLE') wrapTables(n.parentElement); else wrapTables(n); }); } })
+  .observe(document.getElementById('app'),{childList:true,subtree:true});
+/* Keep the Leaflet map fitted when the viewport changes (rotate/resize). */
+let mapResizeBound=false;
+function bindMapResize(){ if(mapResizeBound) return; mapResizeBound=true; const f=()=>{ if(S.map){ try{S.map.invalidateSize();}catch(e){} } }; window.addEventListener('resize',f); window.addEventListener('orientationchange',()=>setTimeout(f,300)); }
 async function ensureMe(){
   if(!S.token) return false;
   try{ const me=await api('/auth/me'); S.user=me.user; S.myCode=me.countryCode||null; if(S.myCode&&!S.myCountry){ try{S.myCountry=await api('/me/country');}catch(e){} } return true; }
@@ -235,7 +254,8 @@ async function renderMap(app){
   try{ const r=await fetch('data/countries.json'); if(r.ok){ const j=await r.json(); (Array.isArray(j)?j:j.countries||[]).forEach(c=>{ if(c.lat!=null) coords[c.code]={lat:c.lat,lng:c.lng}; }); } }catch(e){}
   if(typeof L==='undefined'){ renderCountryGrid($('#map-fallback'),countries); return; }
   try{
-    const map=L.map('map').setView([25,10],2);
+    if(S.map){ try{S.map.remove();}catch(e){} S.map=null; }
+    const map=L.map('map').setView([25,10],2); S.map=map; bindMapResize();
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(map);
     const claimed={}; countries.forEach(c=>claimed[c.code]=c);
     const gj=await fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json').then(r=>{if(!r.ok) throw new Error('GeoJSON '+r.status); return r.json();});
