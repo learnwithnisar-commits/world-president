@@ -108,6 +108,20 @@ function createStore() {
         [key, String(value)]);
     },
 
+    // ---- world reset (pre-launch repair only; see seed.js)
+    // Wipes every world-state table but NEVER users/sessions, so no player
+    // account is ever lost. Callers must gate this on countUsers() === 0.
+    async resetWorld() {
+      const tables = ['countries', 'country_state', 'market_prices', 'trades',
+        'offers', 'relations', 'treaties', 'un_resolutions', 'un_votes',
+        'news', 'chat', 'notifications', 'achievements', 'events',
+        'ministers', 'projects', 'messages', 'audit'];
+      for (const t of tables) await db.run(`DELETE FROM ${t}`);
+      await db.run(`DELETE FROM game_meta WHERE key IN
+        ('event_templates','commodities','seeded_at','seed_source',
+         'tick','last_tick_at')`);
+    },
+
     // ---- users
     async countUsers() {
       const r = await db.get('SELECT COUNT(*) AS n FROM users');
