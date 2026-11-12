@@ -100,3 +100,5 @@ Notes:
   Postgres — `server/src/store.js` abstracts both with identical methods.
 - Never commit a real `.env` or a `DATABASE_URL` with a password.
 - The first user to register on the live deployment becomes admin.
+
+Deploy note (2026-11-12): Railway auto-deploy missed the Dockerfile-layout fix commits; this commit re-triggers deployment from the current main tip.
