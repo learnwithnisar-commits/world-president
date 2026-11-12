@@ -8,11 +8,18 @@ window.WP_LANG = localStorage.getItem('wp_lang') || 'en';
 async function wpLoadI18n(){
   try{
     const r = await fetch('data/i18n.json');
-    if(r.ok){ const j = await r.json(); if(j && j.en && j.ur){ window.WP_I18N = j; } }
+    if(r.ok){ const j = await r.json(); if(j && j.en && j.ur){
+      // Merge over the embedded fallback: the file uses different key names
+      // (camelCase / dotted, e.g. appName, nav.home) than the snake_case keys
+      // the app actually uses (app_name, login, footer_sim, ...), so a plain
+      // replace blanked every label the app uses (nav/footer showed raw keys).
+      const fb = window.WP_I18N_FALLBACK;
+      window.WP_I18N = { en: {...fb.en, ...j.en}, ur: {...fb.ur, ...j.ur} };
+    } }
   }catch(e){ /* DATA agent file not present yet — embedded fallback is used */ }
   applyLang();
 }
-function t(key){ const d = window.WP_I18N[window.WP_LANG] || window.WP_I18N.en; return d[key] || (window.WP_I18N.en[key] || key); }
+function t(key){ const d = window.WP_I18N[window.WP_LANG] || window.WP_I18N.en; const fb = window.WP_I18N_FALLBACK; return d[key] || (window.WP_I18N.en && window.WP_I18N.en[key]) || (fb && fb[window.WP_LANG] && fb[window.WP_LANG][key]) || (fb && fb.en[key]) || key; }
 function applyLang(){
   document.documentElement.lang = window.WP_LANG === 'ur' ? 'ur' : 'en';
   document.documentElement.dir = window.WP_LANG === 'ur' ? 'rtl' : 'ltr';
