@@ -102,3 +102,4 @@ Notes:
 - The first user to register on the live deployment becomes admin.
 
 Deploy note (2026-11-12): Railway auto-deploy missed the Dockerfile-layout fix commits; this commit re-triggers deployment from the current main tip.
+Deploy note (2026-11-12): trigger redeploy so Railway picks up the i18n merge fix (previous push's commits were not all deployed).
